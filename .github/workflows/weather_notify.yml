@@ -1,0 +1,29 @@
+name: 毎朝天気通知
+
+on:
+  schedule:
+    - cron: '0 21 * * *'  # 毎朝 6:00 JST (= 21:00 UTC)
+  workflow_dispatch:       # GitHub画面から手動実行も可能
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Python セットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 依存パッケージインストール
+        run: pip install -r requirements.txt
+
+      - name: 天気通知を実行
+        env:
+          WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
+          LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
+          LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
+        run: python main.py
