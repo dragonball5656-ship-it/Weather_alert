@@ -24,7 +24,7 @@
 |------|----------|
 | `WEATHER_API_KEY` | [OpenWeatherMap](https://openweathermap.org) で無料登録 → API Keys |
 | `LINE_CHANNEL_ACCESS_TOKEN` | [LINE Developers](https://developers.line.biz) → Messaging API チャンネル → チャンネルアクセストークン |
-| `LINE_USER_ID` | LINE Developers → Messaging API → Your user ID（`U`から始まる文字列） |
+| `LINE_USER_IDS` | LINE Developers → Messaging API → Your user ID（`U`から始まる文字列） |
 
 ### 2. GitHub Secrets に登録する
 
@@ -32,7 +32,7 @@ GitHubリポジトリの `Settings > Secrets and variables > Actions` に以下�
 
 - `WEATHER_API_KEY`
 - `LINE_CHANNEL_ACCESS_TOKEN`
-- `LINE_USER_ID`
+- `LINE_USER_IDS`
 
 ### 3. リポジトリにプッシュする
 
