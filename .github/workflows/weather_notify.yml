@@ -1,9 +1,9 @@
 name: 毎朝天気通知
 
 on:
-  schedule:
-    - cron: '0 21 * * *'  # 毎朝 6:00 JST (= 21:00 UTC)
-  workflow_dispatch:       # GitHub画面から手動実行も可能
+  repository_dispatch:
+    types: [run-weather-notify]  # cron-job.orgから起動
+  workflow_dispatch:             # GitHub画面から手動実行も可能
 
 jobs:
   notify:
